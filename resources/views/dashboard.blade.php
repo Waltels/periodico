@@ -26,7 +26,7 @@
         <div class="row row-20">
           <div class="col-md-3">
             @foreach ($portadas2 as $portada)
-            @if ($portada->portada == 2)
+            @if ($portada->articulo->estado == 3)
               <article class="entry">
                 <div class="entry__img-holder">
                     <div class="thumb-container thumb-65">
@@ -55,42 +55,42 @@
           </div>
           <div class="col-md-6">
             @foreach ($portadas1 as $portada)
-            @if ($portada->portada == 1)
-            <article class="entry thumb thumb--size-3 thumb--mb-20">
-              <div class="entry__img-holder thumb__img-holder" style="background-image: url({{Storage::url($portada->articulo->img->url)}});">
-                <div class="bottom-gradient"></div>
-                <div class="thumb-text-holder thumb-text-holder--2">
-                  <ul class="entry__meta">
-                    <li>
-                      <a href="#" class="entry__meta-category">{{$portada->articulo->categoria->name}}</a>
-                    </li>
-                  </ul>
-                  <h2 class="thumb-entry-title">
-                   
-                    <a href="{{route('home.show', $portada->articulo)}}">{{$portada->articulo->titulo}}</a>  
-                  
-                  </h2>
-                  <ul class="entry__meta">
-                    <li class="entry__meta-views">
-                      <i class="ui-eye"></i>
-                      <span>1356</span>
-                    </li>
-                    <li class="entry__meta-comments">
-                      <a href="#">
-                        <i class="ui-chat-empty"></i>{{$portada->articulo->id}}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <a href="single-post-politics.html" class="thumb-url"></a>
-              </div>
-            </article> 
+              @if ($portada->articulo->estado == 3)
+                <article class="entry thumb thumb--size-3 thumb--mb-20">
+                  <div class="entry__img-holder thumb__img-holder" style="background-image: url({{Storage::url($portada->articulo->img->url)}});">
+                    <div class="bottom-gradient"></div>
+                    <div class="thumb-text-holder thumb-text-holder--2">
+                      <ul class="entry__meta">
+                        <li>
+                          <a href="#" class="entry__meta-category">{{$portada->articulo->categoria->name}}</a>
+                        </li>
+                      </ul>
+                      <h2 class="thumb-entry-title">
+                      
+                        <a href="{{route('home.show', $portada->articulo)}}">{{$portada->articulo->titulo}}</a>  
+                      
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-views">
+                          <i class="ui-eye"></i>
+                          <span>1356</span>
+                        </li>
+                        <li class="entry__meta-comments">
+                          <a href="#">
+                            <i class="ui-chat-empty"></i>{{$portada->articulo->id}}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <a href="single-post-politics.html" class="thumb-url"></a>
+                  </div>
+                </article> 
             @endif
             @endforeach
           </div>
           <div class="col-md-3">
             @foreach ($portadas3 as $portada)
-            @if ($portada->portada == 3)
+            @if ($portada->articulo->estado == 3)
             <article class="entry">
               <div class="entry__img-holder">
                   <div class="thumb-container thumb-65">
@@ -122,7 +122,7 @@
         <div class="col-lg-8 order-lg-2">
           <section class="section mb-16">
             @foreach ($portadas4 as $portada)
-            @if ($portada->portada == 4)
+            @if ($portada->articulo->estado == 3)
             <article class="entry thumb thumb--size-3 thumb--mb-20">
                 <div class="entry__img-holder thumb__img-holder" style="background-image: url({{Storage::url($portada->articulo->img->url)}});">
                 <div class="bottom-gradient"></div>
@@ -154,7 +154,7 @@
             @endforeach
             <div class="row row-20">
                 @foreach ($portadas5 as $portada)
-                @if ($portada->portada == 5)
+                @if ($portada->articulo->estado == 3)
                 <div class="col-md-6">
                   <article class="entry">
                       <div class="entry__img-holder">
@@ -179,7 +179,7 @@
                       </div>
                   </article>
                 </div>
-                @endif    
+                @endif
                 @endforeach
             </div>          
           </section>
@@ -192,7 +192,7 @@
             <ul class="post-list-small post-list-small--1">
 
                 @foreach ($semanas as $portada)
-                @if ($portada->portada == 7)
+                @if ($portada->articulo->estado == 3)
                 <li class="post-list-small__item">
                   <article class="post-list-small__entry clearfix">
                       <div class="post-list-small__img-holder">
@@ -221,8 +221,9 @@
         <img src="img/content/placeholder_728.jpg" alt="">
     </a>
     </div>
-      <!-- Carousel posts -->
-      <section class="section mb-24">
+      <!-- Carousel posts COMENTADO HASTA QUE SE COMPLETE EL COODIGO-->
+
+      {{-- <section class="section mb-24">
         <div class="title-wrap title-wrap--line title-wrap--pr">
           <h3 class="section-title">insight &amp; analysis</h3>
         </div>
@@ -335,7 +336,9 @@
             </div>
           </article>
         </div> <!-- end slider -->
-      </section> <!-- end carousel posts -->
+      </section>  --}}
+      
+      <!-- end carousel posts -->
 
       <!-- LO MAS VISTO -->
       <section class="section mb-32">
@@ -346,7 +349,7 @@
           <div class="col-lg-8">
             <div class="row">
               @foreach ($vistos as $portada)
-              @if ($portada->portada == 6)
+              @if ($portada->articulo->estado == 3)
               <div class="col-lg-6">
                 <article class="entry">
                   <div class="row">
@@ -376,7 +379,7 @@
           </div>
           <div class="col-lg-4 text-right text-md-center">
             <a href="#">
-              <img src="img/content/placeholder_300_600.jpg" alt="">
+              <img src="{{asset('img/conmerb1.jpg')}}" alt="">
             </a>
           </div>
         </div>

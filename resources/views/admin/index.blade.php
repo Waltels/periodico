@@ -22,12 +22,13 @@
                   <th class="pt-0 text-center">Titulo</th>
                   <th class="pt-0">categoria</th>
                   
-                  <th class="pt-0">Status</th>
-                  <th class="pt-0">Assign</th>
+                  <th class="pt-0">estado</th>
+                  <th class="pt-0">Acciones</th>
                 </tr>     
               </thead>
               <tbody>
                   @foreach ($articulos as $articulo)
+                  @if ($articulo->estado != 1)
                   <tr>
                       <td>{{$articulo->id}} </td>
                       <td>
@@ -38,7 +39,7 @@
                           @endisset
                            {!! Str::limit($articulo->titulo , 80) !!}
                           </td>
-                      <td>{{$articulo->categoria->name}} </td>
+                      <td>{{$articulo->categoria->slug}} </td>
                       <td>
                           @switch($articulo->estado)
                               @case(1)
@@ -53,14 +54,19 @@
                           @endswitch
                           
                       <td>
-
-                        <a class="btn btn-outline-success  btn-xs" href="{{route('articulos.show', $articulo)}}">ver</a>
-                          <a class="btn btn-outline-primary  btn-xs" href="{{route('articulos.edit', $articulo)}}">Editar</a>
-                      </td>
-                  </tr>      
+                        @can('Ver Articulo')
+                        <a class="btn btn-outline-success  btn-xs" href="{{route('articulos.show', $articulo)}}">ver</a>    
+                        @endcan
+                        @can('Editar Articulo')
+                          <a class="btn btn-outline-primary  btn-xs" href="{{route('articulos.edit', $articulo)}}">Editar</a>  
+                        @endcan
+                        </td>
+                  </tr>  
+                  @endif    
                   @endforeach
               </tbody>
             </table>
+            {{$articulos->links()}}
           </div>
         </div> 
       </div>

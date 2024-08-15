@@ -25,7 +25,7 @@
                       <a href="#">{{$articulo->user->name}}</a>
                     </li>
                     <li class="entry__meta-date">
-                      Jan 21, 2018
+                      {{$articulo->fecha}}
                     </li>
                   </ul>
                   <ul class="entry__meta">
@@ -89,7 +89,7 @@
                     <h6 class="entry-author__name">
                       <a href="#">{{$articulo->user->name}}</a>
                     </h6>
-                    <p class="mb-0">But unfortunately for most of us our role as gardener has never been explained to us. And in misunderstanding our role, we have allowed seeds of all types, both good and bad, to enter our inner garden.</p>
+                    <p class="mb-0">{{$perfil->biografia}}</p>
                   </div>
                 </div>
               </article> <!-- end standard post -->
@@ -137,40 +137,37 @@
     
               <!-- Widget Newsletter -->
               <aside class="widget widget_mc4wp_form_widget text-center">
+                @can('Editar Articulo')
                 <div>
                   <h4 class="widget-title text-center">ACCIONES PARA EL ARTICULO</h4>
                   <p>No cuenta con acciones el autor del Articulo</p>
                   <hr> 
-                </div>
+                </div>  
+                @endcan
+                @can('Publicar Articulo')
                 <div>
-                @if ($articulo->estado == 2)
-                <h4 class="widget-title text-center">ACCIONES PARA EL ARTICULO</h4>
-                <hr>
-                    <div class="mb-3">
-                        <form action="{{route('articulos.publicar', $articulo)}}" method="POST">
-                            @csrf
-                            <button class="btn btn-sm btn-light"><i data-feather="check-square"></i> Rechazar Articulo </button>
-                        </form>
-                    </div>
-                    <div class="mb-3">
-                      
-                          <a href="{{route('articulos.observar', $articulo)}}" class="btn btn-sm btn-dark"><i data-feather="check-square"></i> Observar Articulo</a>
-                    </div>
-                    <div class="mb-3">
-                        <form action="{{route('articulos.publicar', $articulo)}}" method="POST">
-                            @csrf
-                            <button class="btn btn-sm btn-color"><i data-feather="check-square"></i> Publicar Articulo</button>
-                        </form>
-                    </div>
-                @else
-                    <div class="mb-3">
-                        <form action="{{route('articulos.revisar', $articulo)}}" method="POST">
-                            @csrf
-                            <button class="btn btn-sm btn-dark"><i data-feather="check-square"></i> Revisar Articulo </button>
-                        </form>
-                    </div>
-                @endif
+                    @if ($articulo->estado != 3)
+                    <h4 class="widget-title text-center">ACCIONES PARA EL ARTICULO</h4>
+                    <hr>
+                        <div class="mb-3">
+                              <a href="{{route('articulos.observar', $articulo)}}" class="btn btn-sm btn-dark"><i data-feather="check-square"></i> Observar Articulo</a>
+                        </div>
+                        <div class="mb-3">
+                            <form action="{{route('articulos.publicar', $articulo)}}" method="POST">
+                                @csrf
+                                <button class="btn btn-sm btn-color"><i data-feather="check-square"></i> Publicar Articulo</button>
+                            </form>
+                        </div>
+                    @else
+                        <div class="mb-3">
+                            <form action="{{route('articulos.revisar', $articulo)}}" method="POST">
+                                @csrf
+                                <button class="btn btn-sm btn-dark"><i data-feather="check-square"></i> Revisar Articulo </button>
+                            </form>
+                        </div>
+                    @endif   
               </div>
+              @endcan
               </aside> <!-- end widget newsletter -->
 
     

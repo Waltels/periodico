@@ -109,11 +109,11 @@
                         <label for="exampleInputPassword1" class="form-label">Categoria</label>
                         <select class="form-select" name="categoria_id" id="ageSelect">
                                 @foreach ($categorias as $categoria)
-                                <option value="{{$categoria->id}}" @if($articulo->categoria_id == $categoria->id) selected @endif>{{$categoria->name}}</option> 
+                                <option value="{{$categoria->id}}" @if($articulo->categoria_id == $categoria->id) selected @endif>{{$categoria->slug}}</option> 
                                 @endforeach
                         </select>
                     </div>
-                    <div class="col-lg-9 mb-2">
+                    <div class="col-lg-5 mb-2">
                         <label for="exampleInputPassword1" class="form-label">Imagen</label>
                         <figure>
                           @isset($articulo->img)
@@ -123,6 +123,15 @@
                           @endisset
                           </figure>
                           <input name="file" id="file" class="form-control" type="file" accept="image/*">
+                    </div>
+                    <div class="col-lg-4 mb-2">
+                      <label for="exampleInputPassword1" class="form-label">Fecha de publicación</label>
+                      <div class="d-flex align-items-center flex-wrap text-nowrap">
+                        <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
+                        <span class="input-group-text input-group-addon bg-transparent border-primary" data-toggle><i data-feather="calendar" class="text-primary"></i></span>
+                        <input type="text" name="fecha" class="form-control bg-transparent border-primary" placeholder="Select date" data-input>
+                        </div>
+                      </div>
                     </div>
                 </div>
                 <div class="flex justify-end">

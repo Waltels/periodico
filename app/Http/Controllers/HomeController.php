@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articulo;
+use App\Models\Categoria;
 use App\Models\Portada;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,7 @@ class HomeController extends Controller
 {
     public function index(Articulo $articulo)
     {
+        $categorias = Categoria::all();
         $portadas1 = Portada::where('portada', 1)->latest('id')->paginate(1);
         $portadas2 = Portada::where('portada', 2)->latest('id')->paginate(1);
         $portadas3 = Portada::where('portada', 3)->latest('id')->paginate(1);
@@ -24,11 +26,9 @@ class HomeController extends Controller
                                         'portadas5',
                                         'vistos',
                                         'semanas',
-                                        'articulo'
+                                        'articulo',
+                                        'categorias'
         ));
     }
-
-    public function show(Articulo $articulo){
-        return view('show', compact('articulo'));
-    }
+    
 }

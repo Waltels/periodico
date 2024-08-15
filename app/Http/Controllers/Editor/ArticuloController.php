@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Editor;
 use App\Http\Controllers\Controller;
 use App\Models\Articulo;
 use App\Models\Categoria;
+use App\Models\Perfil;
 use App\Models\Portada;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +17,7 @@ class ArticuloController extends Controller
      */
     public function index()
     {
+        
         
         $articulos = Articulo::where('user_id', auth()->user()->id)->latest()->paginate(10);
         return view('editor.index', compact('articulos'));
@@ -37,7 +39,7 @@ class ArticuloController extends Controller
     {
         $request->validate([
             'titulo'=> 'required',
-            'slug'=> 'required|unique:articulos',
+            'slug'=> 'required|unique:articulos,slug',
             'subtitulo'=> 'required',
             'contenido'=> 'required',
             'categoria_id'=> 'required',
@@ -61,10 +63,13 @@ class ArticuloController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Articulo $articulo)
+    public function show(Articulo $articulo, Perfil $perfil )
     {
+        $categorias = Categoria::all();
         $semanas = Portada::where('portada', 7)->latest('id')->paginate(8);
-        return view('editor.show', compact('articulo', 'semanas'));
+        $articulos = Articulo::all();
+        
+        return view('editor.show', compact('articulos','articulo', 'semanas', 'perfil', 'categorias'));
     }
 
     /**
@@ -123,6 +128,12 @@ class ArticuloController extends Controller
     {
         $articulo->estado = 2;
         $articulo->save();
+
+        if ($articulo->observacion) {
+
+            $articulo->observacion->delete();
+        }
+
         return redirect()->route('articulos.edit', $articulo);
     }
 
@@ -130,7 +141,7 @@ class ArticuloController extends Controller
     {
         $articulo->estado = 3;
         $articulo->save();
-        return redirect()->route('articulos.index', $articulo);
+        return redirect()->route('admin.articulos.index', $articulo);
     }
     public function revisar(Articulo $articulo)
     {

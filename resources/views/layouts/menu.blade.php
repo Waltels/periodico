@@ -160,11 +160,9 @@
                         <li class="nav__dropdown">
                             <a href="#">categorias</a>
                             <ul class="nav__dropdown-menu">
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="search-results.html">Search Results</a></li>
-                                <li><a href="categories.html">Categories</a></li>
-                                <li><a href="404.html">404</a></li>
+                                @foreach ($categorias as $categoria)
+                                    <li><a href="{{route('categoria.name', $categoria)}}">{{$categoria->slug}}</a></li>  
+                                @endforeach
                             </ul>
                         </li>
 
@@ -206,8 +204,15 @@
                                                 <a class="mt-0">{{ auth()->user()->email }}</a>
                                             </li>
                                             <hr class="mb-1 mt-1">
-                                            <li><a href="{{route('articulos.index')}}">Escritor</a></li>
-                                            <li><a href="{{route('admin.articulos.index')}}">Administrador</a></li>
+                                            @can('Crear Articulo')
+                                                <li><a href="{{route('articulos.index')}}">Escritor</a></li>
+                                            @endcan
+                                            @can('Ver Publicaciones')
+                                            <li><a href="{{route('admin.articulos.index')}}">Editor</a></li>                                         
+                                            @endcan
+                                            @can('Ver Usuarios')
+                                            <li><a href="{{route('admin.users.index')}}">Administrador</a></li>                                         
+                                            @endcan
                                             <hr class="mb-1 mt-1">
                                             <li>
                                                 <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();

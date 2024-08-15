@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('subtitulo');
             $table->text('contenido');
             $table->string('slug');
+            $table->string('fecha');
             $table->enum('estado',[Articulo::Borrador, Articulo::Revisado, Articulo::Publicado])->default(Articulo::Borrador);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('categoria_id');
+            $table->unsignedBigInteger('catepub_id');
 
             $table->foreign('user_id')
                   ->references('id')
@@ -30,6 +32,11 @@ return new class extends Migration
             $table->foreign('categoria_id')
                   ->references('id')
                   ->on('categorias')
+                  ->onDelete('cascade');
+                  
+            $table->foreign('catepub_id')
+                  ->references('id')
+                  ->on('catepubs')
                   ->onDelete('cascade');
             $table->timestamps();
         });

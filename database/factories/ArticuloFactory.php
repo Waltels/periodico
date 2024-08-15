@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Articulo;
 use App\Models\Categoria;
+use App\Models\Catepub;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,9 +28,11 @@ class ArticuloFactory extends Factory
             'subtitulo' => $this->faker->sentence(),
             'contenido' => $this->faker->paragraph(),
             'slug' => Str::slug($titulo),
+            'fecha'=>$this->faker->date(),
             'estado'=> $this->faker->randomElement([Articulo::Borrador, Articulo::Revisado, Articulo::Publicado]),
             'user_id'=> User::all()->random()->id,
             'categoria_id'=> Categoria::all()->random()->id,
+            'catepub_id'=> Catepub::all()->random()->id,
 
         ];
     }

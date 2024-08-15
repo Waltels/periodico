@@ -24,8 +24,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    
+ 
 });
 
+
 Route::get('/{articulo}', [ArticuloController::class, 'show'])->name('home.show');
+Route::get('dashboard/{categoria}', [ArticuloController::class, 'categoria'])->name('categoria.name');
+
 
 

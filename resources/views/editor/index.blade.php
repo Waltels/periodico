@@ -29,12 +29,12 @@
             <table class="table table-hover mb-0">
               <thead>
                 <tr>
-                  <th class="pt-0">#</th>
+                  <th class="pt-0">nº</th>
                   <th class="pt-0 text-center">Titulo</th>
                   <th class="pt-0">categoria</th>
                   
-                  <th class="pt-0">Status</th>
-                  <th class="pt-0">Assign</th>
+                  <th class="pt-0">estado</th>
+                  <th class="pt-0">acciones</th>
                 </tr>     
               </thead>
               <tbody>
@@ -49,7 +49,7 @@
                           @endisset
                            {!! Str::limit($articulo->titulo , 80) !!}
                           </td>
-                      <td>{{$articulo->categoria->name}} </td>
+                      <td>{{$articulo->categoria->slug}} </td>
                       <td>
                           @switch($articulo->estado)
                               @case(1)
@@ -64,9 +64,12 @@
                           @endswitch
                           
                       <td>
-
+                        @can('Ver Articulo')
                         <a class="btn btn-outline-success  btn-xs" href="{{route('articulos.show', $articulo)}}">ver</a>
-                          <a class="btn btn-outline-primary  btn-xs" href="{{route('articulos.edit', $articulo)}}">Editar</a>
+                        @endcan
+                        @can('Editar Articulo')
+                          <a class="btn btn-outline-primary  btn-xs" href="{{route('articulos.edit', $articulo)}}">Editar</a>  
+                        @endcan
                       </td>
                   </tr>      
                   @endforeach

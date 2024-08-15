@@ -18,11 +18,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Storage::makeDirectory('public/articulos');
-
+        $this->call(PermissionSeeder::class);
+        $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(CategoriaSeeder::class);
+        $this->call(CatepubSeeder::class);
         $this->call(ArticuloSeeder::class);
-        $this->call(PortadaSeeder::class);
+        /* $this->call(PortadaSeeder::class); */
+        
 
     }
 }

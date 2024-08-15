@@ -14,19 +14,19 @@ class CategoriaSeeder extends Seeder
     public function run(): void
     {
         Categoria::create([
-            'name'=>'Educación',
+            'slug'=>'Educación',
             'estado'=>random_int(0,1),
         ]);
         Categoria::create([
-            'name'=>'Deportes',
+            'slug'=>'Deportes',
             'estado'=>random_int(0,1),
         ]);
         Categoria::create([
-            'name'=>'Cultura',
+            'slug'=>'Cultura',
             'estado'=>random_int(0,1),
         ]);
         Categoria::create([
-            'name'=>'Sindical',
+            'slug'=>'Sindical',
             'estado'=>random_int(0,1),
         ]);
     }

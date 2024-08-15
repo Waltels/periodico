@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Portada extends Model
 {
     use HasFactory;
-
+    protected $guarded = ['id'];
     const P1 = 1;
     const P2 = 2;
     const P3 = 3;
