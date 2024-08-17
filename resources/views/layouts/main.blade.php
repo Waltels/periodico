@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Deus | Home 2 Politics</title>
+    <title>serconed | educalibre</title>
 
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -20,10 +20,10 @@
     {{-- <link rel="stylesheet" href="{{asset('css/colors/cyan.css')}}" /> --}}
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
-    <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('img/apple-touch-icon-72x72.png')}}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('img/apple-touch-icon-114x114.png')}}">
+    <link rel="shortcut icon" href="{{asset('img/educali.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('img/educali.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('img/educali.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('img/educali.png')}}">
 
     <!-- Lazyload (must be placed in head in order to work) -->
     <script src="{{asset('js/lazysizes.min.js')}}"></script>

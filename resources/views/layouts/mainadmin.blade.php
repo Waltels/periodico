@@ -8,7 +8,7 @@
 	<meta name="author" content="NobleUI">
 	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+	<title>serconed - educalibre</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
 	<link rel="stylesheet" href="{{asset('admin/css/demo1/style.css')}}">
     <!-- End layout styles -->
 
-    <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}" />
+    <link rel="shortcut icon" href="{{asset('img/educali.png')}}" />
 </head>
 <body>
 	<div class="main-wrapper">
@@ -94,34 +94,33 @@
 										<img class="wd-80 ht-80 rounded-circle" src="https://via.placeholder.com/80x80" alt="">
 									</div>
 									<div class="text-center">
-										<p class="tx-16 fw-bolder">Amiah Burton</p>
-										<p class="tx-12 text-muted">amiahburton@gmail.com</p>
+										<p class="tx-16 fw-bolder">{{ auth()->user()->name }}</p>
+										<p class="tx-12 text-muted">{{ auth()->user()->email }}</p>
 									</div>
 								</div>
                                 <ul class="list-unstyled p-1">
                                     <li class="dropdown-item py-2">
                                         <a href="pages/general/profile.html" class="text-body ms-0">
                                         <i class="me-2 icon-md" data-feather="user"></i>
-                                        <span>Profile</span>
+                                        <span>Perfil</span>
                                         </a>
                                     </li>
                                     <li class="dropdown-item py-2">
                                         <a href="javascript:;" class="text-body ms-0">
                                         <i class="me-2 icon-md" data-feather="edit"></i>
-                                        <span>Edit Profile</span>
+                                        <span>Editsr Perfil</span>
                                         </a>
                                     </li>
+                                    
                                     <li class="dropdown-item py-2">
-                                        <a href="javascript:;" class="text-body ms-0">
-                                        <i class="me-2 icon-md" data-feather="repeat"></i>
-                                        <span>Switch User</span>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown-item py-2">
-                                        <a href="javascript:;" class="text-body ms-0">
+                                        <a href="javascript:;" class="text-body ms-0" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
                                         <i class="me-2 icon-md" data-feather="log-out"></i>
-                                        <span>Log Out</span>
+                                        <span>Salir</span>
                                         </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </li>
                                 </ul>
 							</div>
@@ -135,7 +134,7 @@
 
 				<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
 				<div>
-					<h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+					<h4 class="mb-3 mb-md-0">Panel de administración educalibre</h4>
 				</div>
 				<div class="d-flex align-items-center flex-wrap text-nowrap">
 					<div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">

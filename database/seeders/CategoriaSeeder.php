@@ -29,5 +29,21 @@ class CategoriaSeeder extends Seeder
             'slug'=>'Sindical',
             'estado'=>random_int(0,1),
         ]);
+        Categoria::create([
+            'slug'=>'Mundo',
+            'estado'=>random_int(0,1),
+        ]);
+        Categoria::create([
+            'slug'=>'Politica',
+            'estado'=>random_int(0,1),
+        ]);
+        Categoria::create([
+            'slug'=>'Tecnologia',
+            'estado'=>random_int(0,1),
+        ]);
+        Categoria::create([
+            'slug'=>'Deportes',
+            'estado'=>random_int(0,1),
+        ]);
     }
 }

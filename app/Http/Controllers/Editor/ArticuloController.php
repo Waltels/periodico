@@ -40,7 +40,7 @@ class ArticuloController extends Controller
         $request->validate([
             'titulo'=> 'required',
             'slug'=> 'required|unique:articulos,slug',
-            'subtitulo'=> 'required',
+            'subtitulo'=> 'nullable',
             'contenido'=> 'required',
             'categoria_id'=> 'required',
             'file'=>'image',
@@ -65,11 +65,16 @@ class ArticuloController extends Controller
      */
     public function show(Articulo $articulo, Perfil $perfil )
     {
-        $categorias = Categoria::all();
+        $mundos =Articulo::where('categoria_id', 5)->latest('id')->paginate(1);
+        $politicas =Articulo::where('categoria_id', 6)->latest('id')->paginate(1);
+        $tecnologias =Articulo::where('categoria_id', 7)->latest('id')->paginate(1);
+        $deportes =Articulo::where('categoria_id', 8)->latest('id')->paginate(1);
+
+        $categorias = Categoria::where('id', '<', '5')->paginate(4);
         $semanas = Portada::where('portada', 7)->latest('id')->paginate(8);
         $articulos = Articulo::all();
         
-        return view('editor.show', compact('articulos','articulo', 'semanas', 'perfil', 'categorias'));
+        return view('editor.show', compact('articulos','articulo', 'semanas', 'perfil', 'categorias', 'mundos', 'politicas', 'tecnologias', 'deportes'));
     }
 
     /**

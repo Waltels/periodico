@@ -82,74 +82,78 @@
                         </li>
 
                         <li class="nav__dropdown">
-                            <a href="#">publicaciones</a>
+                            <a href="#">actualidad</a>
                             <ul class="nav__dropdown-menu nav__megamenu">
                                 <li>
                                     <div class="nav__megamenu-wrap">
                                         <div class="row">
-
                                             <div class="col nav__megamenu-item">
+                                                @foreach ($mundos as $articulo)
+                                                @if ($articulo->estado == 3)
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
-                                                        <a href="single-post-politics.html">
-                                                            <img src="img/content/grid/grid_post_1.jpg" alt="" class="entry__img">
-                                                        </a>
-                                                        <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">world</a>
+                                                            <img src="{{Storage::url($articulo->img->url)}}" alt="" class="entry__img">
+                                                        <a href="" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">{{$articulo->categoria->slug}}</a>
                                                     </div>
                                                     <div class="entry__body">   
                                                         <h2 class="entry__title">
-                                                            <a href="single-post-politics.html">Follow These Smartphone Habits of Successful Entrepreneurs</a>
+                                                            <a href="{{route('home.show', $articulo)}}">{{$articulo->titulo}}</a>
                                                         </h2>
                                                     </div>
-                                                </article>
+                                                </article>                                                 
+                                                @endif
+                                                @endforeach
                                             </div>
                                             <div class="col nav__megamenu-item">
+                                                @foreach ($politicas as $articulo)
+                                                @if ($articulo->estado == 3)
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
-                                                        <a href="single-post-politics.html">
-                                                            <img src="img/content/grid/grid_post_2.jpg" alt="" class="entry__img">
-                                                        </a>
-                                                        <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--purple">fashion</a>
+                                                            <img src="{{Storage::url($articulo->img->url)}}" alt="" class="entry__img">
+                                                        <a href="" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">{{$articulo->categoria->slug}}</a>
                                                     </div>
-
                                                     <div class="entry__body">   
                                                         <h2 class="entry__title">
-                                                            <a href="single-post-politics.html">3 Things You Can Do to Get Your Customers Talking About Your Business</a>
+                                                            <a href="{{route('home.show', $articulo)}}">{{$articulo->titulo}}</a>
                                                         </h2>
                                                     </div>
-                                                </article>
+                                                </article>                                                 
+                                                @endif
+                                                @endforeach
                                             </div>
                                             <div class="col nav__megamenu-item">
+                                                @foreach ($tecnologias as $articulo)
+                                                @if ($articulo->estado == 3)
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
-                                                        <a href="single-post-politics.html">
-                                                            <img src="img/content/grid/grid_post_3.jpg" alt="" class="entry__img">
-                                                        </a>
-                                                        <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--blue">business</a>
+                                                            <img src="{{Storage::url($articulo->img->url)}}" alt="" class="entry__img">
+                                                        <a href="" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">{{$articulo->categoria->slug}}</a>
                                                     </div>
-
                                                     <div class="entry__body">   
                                                         <h2 class="entry__title">
-                                                            <a href="single-post-politics.html">Lose These 12 Bad Habits If You're Serious About Becoming a Millionaire</a>
+                                                            <a href="{{route('home.show', $articulo)}}">{{$articulo->titulo}}</a>
                                                         </h2>
                                                     </div>
-                                                </article>
+                                                </article>                                                 
+                                                @endif
+                                                @endforeach
                                             </div>
                                             <div class="col nav__megamenu-item">
+                                                @foreach ($deportes as $articulo)
+                                                @if ($articulo->estado == 3)
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
-                                                        <a href="single-post-politics.html">
-                                                            <img src="img/content/grid/grid_post_4.jpg" alt="" class="entry__img">
-                                                        </a>
-                                                        <a href="categories.html" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--green">lifestyle</a>
+                                                            <img src="{{Storage::url($articulo->img->url)}}" alt="" class="entry__img">
+                                                        <a href="" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">{{$articulo->categoria->slug}}</a>
                                                     </div>
-
                                                     <div class="entry__body">   
                                                         <h2 class="entry__title">
-                                                            <a href="single-post-politics.html">10 Horrible Habits You're Doing Right Now That Are Draining Your Energy</a>
+                                                            <a href="{{route('home.show', $articulo)}}">{{$articulo->titulo}}</a>
                                                         </h2>
                                                     </div>
-                                                </article>
+                                                </article>                                                 
+                                                @endif
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

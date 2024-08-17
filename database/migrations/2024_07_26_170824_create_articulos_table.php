@@ -22,7 +22,6 @@ return new class extends Migration
             $table->enum('estado',[Articulo::Borrador, Articulo::Revisado, Articulo::Publicado])->default(Articulo::Borrador);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('categoria_id');
-            $table->unsignedBigInteger('catepub_id');
 
             $table->foreign('user_id')
                   ->references('id')
@@ -34,10 +33,6 @@ return new class extends Migration
                   ->on('categorias')
                   ->onDelete('cascade');
                   
-            $table->foreign('catepub_id')
-                  ->references('id')
-                  ->on('catepubs')
-                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

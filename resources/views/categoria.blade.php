@@ -53,6 +53,7 @@
         <h4 class="widget-title">más articulos</h4>
         <ul class="post-list-small">
           @foreach ($semanas as $articulo)
+          @if ($articulo->estado == 3)
           <li class="post-list-small__item">
             <article class="post-list-small__entry clearfix">
               <div class="post-list-small__img-holder">
@@ -77,7 +78,8 @@
                 </ul>
               </div>                  
             </article>
-          </li>
+          </li>        
+          @endif
           @endforeach
         </ul>           
       </aside> <!-- end widget popular posts -->

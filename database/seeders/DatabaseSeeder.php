@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RolSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(CategoriaSeeder::class);
-        $this->call(CatepubSeeder::class);
         $this->call(ArticuloSeeder::class);
         /* $this->call(PortadaSeeder::class); */
         

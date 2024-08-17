@@ -4,16 +4,16 @@
         <div class="row">
 
           <div class="col-lg-6">
-            <ul class="footer__nav-menu">
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">News</a></li>
-              <li><a href="categories.html">Advertise</a></li>
-              <li><a href="shortcodes.html">Support</a></li>
-              <li><a href="shortcodes.html">Features</a></li>
-              <li><a href="shortcodes.html">Contact</a></li>
-            </ul>
+            {{-- <ul class="footer__nav-menu">
+              <li><a href="">About</a></li>
+              <li><a href="">News</a></li>
+              <li><a href="">Advertise</a></li>
+              <li><a href="">Support</a></li>
+              <li><a href="">Features</a></li>
+              <li><a href="">Contact</a></li>
+            </ul> --}}
             <p class="copyright">
-              &copy; <script>document.querySelector(".copyright").innerHTML += new Date().getFullYear();</script> Deus  |  Made by <a href="https://deothemes.com">DeoThemes</a>
+              &copy; <script>document.querySelector(".copyright").innerHTML += new Date().getFullYear();</script> serconed  |  Creado por <a href="">Walter Laura Soto</a>
             </p>              
           </div>
 

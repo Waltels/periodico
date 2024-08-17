@@ -78,12 +78,12 @@
     
                 <!-- Author -->
                 <div class="entry-author clearfix">
-                  <img alt="" data-src="img/content/single/author.jpg" src="img/empty.png" class="avatar lazyload">
+                  <img alt="" src="{{asset('img/user.png')}}" class="avatar lazyload" width="50">
                   <div class="entry-author__info">
                     <h6 class="entry-author__name">
                       <a href="#">{{$articulo->user->name}}</a>
                     </h6>
-                    <p class="mb-0">But unfortunately for most of us our role as gardener has never been explained to us. And in misunderstanding our role, we have allowed seeds of all types, both good and bad, to enter our inner garden.</p>
+                    {{-- <p class="mb-0">But unfortunately for most of us our role as gardener has never been explained to us. And in misunderstanding our role, we have allowed seeds of all types, both good and bad, to enter our inner garden.</p> --}}
                   </div>
                 </div>
     
@@ -118,13 +118,16 @@
                 </section> <!-- end related posts -->            
     
               </article> <!-- end standard post -->
+
+
+              
     
               <!-- Comments -->
               <div class="entry-comments">
                 <div class="title-wrap title-wrap--line">
-                  <h3 class="section-title">3 comments</h3>
+                  <h3 class="section-title">COMENTARIOS</h3>
                 </div>
-                <ul class="comment-list">
+                {{-- <ul class="comment-list">
                   <li class="comment">  
                     <div class="comment-body">
                       <div class="comment-avatar">
@@ -176,15 +179,18 @@
                     </div>
                   </li> <!-- end 3 comment -->
     
-                </ul>         
+                </ul> --}}         
               </div> <!-- end comments -->
     
+
+
+              
               <!-- Comment Form -->
               <div id="respond" class="comment-respond">
                 <div class="title-wrap">
-                  <h5 class="comment-respond__title section-title">Leave a Reply</h5>
+                  <h5 class="comment-respond__title section-title">COMENTA AQUI</h5>
                 </div>
-                <form id="form" class="comment-form" method="post" action="#">
+                {{-- <form id="form" class="comment-form" method="post" action="#">
                   <p class="comment-form-comment">
                     <label for="comment">Comment</label>
                     <textarea id="comment" name="comment" rows="5" required="required"></textarea>
@@ -209,9 +215,12 @@
                     <input type="submit" class="btn btn-lg btn-color btn-button" value="Post Comment" id="submit-message">
                   </p>
                   
-                </form>
+                </form> --}}
               </div> <!-- end comment form -->
             </div> <!-- end post content -->
+
+
+
     
             <!-- Sidebar -->
             <aside class="col-lg-4 sidebar sidebar--right">
@@ -221,6 +230,7 @@
                 <h4 class="widget-title">en esta semana</h4>
                 <ul class="post-list-small">
                   @foreach ($semanas as $semana)
+                  @if ($semana->estado == 3)
                     <li class="post-list-small__item">
                       <article class="post-list-small__entry clearfix">
                         <div class="post-list-small__img-holder">
@@ -246,6 +256,7 @@
                         </div>                  
                       </article>
                     </li> 
+                  @endif
                   @endforeach
                 </ul>           
               </aside> <!-- end widget popular posts -->

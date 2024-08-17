@@ -31,8 +31,7 @@ class ArticuloFactory extends Factory
             'fecha'=>$this->faker->date(),
             'estado'=> $this->faker->randomElement([Articulo::Borrador, Articulo::Revisado, Articulo::Publicado]),
             'user_id'=> User::all()->random()->id,
-            'categoria_id'=> Categoria::all()->random()->id,
-            'catepub_id'=> Catepub::all()->random()->id,
+            'categoria_id'=> Categoria::all()->random()->id
 
         ];
     }
